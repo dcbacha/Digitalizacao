@@ -1,0 +1,23 @@
+create table users(
+	
+id int auto_increment,
+    
+nome varchar(255),
+    
+email varchar(255),
+    
+nivel int,
+    
+empresa varchar(255),
+    
+senha varchar(255),
+    
+    
+
+primary key (id)
+
+
+
+)
+
+insert into users (nome, email, nivel, empresa, senha) values ('teste3', 'teste3@gmail', 3, 'C', 'teste')
