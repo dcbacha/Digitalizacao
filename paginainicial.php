@@ -116,19 +116,33 @@ include("verifica.php");
     </div>
 
 
-    <div hidden id="botaoConsultar">
+    <div hidden id="botaoConsulta">
       <button type="submit" class="btn btn-primary botao" id="buttonconsultar">Consultar</button>
+      <span hidden id="botaoPdf">
+        <a href="SalvarParaPDF.php" class="btn btn-success botao" id="buttonpdf">Salvar PDF</a>
+      </span>
     </div>
+
+     <div hidden id="botaoConsulta2">
+      <button type="submit" class="btn btn-danger botao" id="buttonconsultar2">Consultar</button>
+      <span hidden id="botaoPdf2">
+        <a href="SalvarParaPDF.php" class="btn btn-warning botao" id="buttonpdf2">Salvar PDF</a>
+      </span>
     </div>
+
+  
+    
 
 
     <div  style="margin-top: 15px;" class="container" align="center" id="spinner" hidden>
     <img src="img/spinner.gif" alt="">
     </div>
-    <div class="container" style="margin-top: 15px;" id="tabelaConsulta" hidden>
     
-    <div class="table-responsive">
-    <table class="table table-striped">
+
+    <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsulta2" hidden>
+    
+ 
+    <table class="table table-striped" id="tabelaDesktop">
       <thead>
         <tr>
           <th>Empresa</th>
@@ -213,7 +227,76 @@ include("verifica.php");
 
       </tbody>
     </table>
-    </div>
+
+
+    <table class="table table-striped" id="tabelaMobile">
+      <thead>
+        <tr>
+          <th>Orden de Pago</th>
+          <th>Fecha Emisión</th>
+          <?php
+            if($_SESSION['nivel'] == 1 ||$_SESSION['nivel'] == 0){
+          ?>
+          <th></th>
+          <?php
+          }
+          ?>
+        </tr>
+      </thead>
+      <tbody>    
+        <tr>
+          <td>7000003854</td>
+          <td>06/10/2015</td>
+        
+          
+          <?php
+            if($_SESSION['nivel'] == 1 ||$_SESSION['nivel'] == 0){
+          ?>
+          <td>
+            <button type="button" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-save" aria-hidden="true"></span>PDF
+            </button>
+          </td>
+          <?php
+          }
+          ?>
+
+        </tr>
+        <tr>
+          <td>7000076524</td>
+          <td>14/08/2016</td>
+        
+          <?php
+            if($_SESSION['nivel'] == 1 ||$_SESSION['nivel'] == 0){
+          ?>
+          <td>
+            <button type="button" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-save" aria-hidden="true"></span>PDF
+            </button>
+          </td>
+          <?php
+          }
+          ?>
+        </tr>
+        <tr>
+          <td>7000374902</td>
+          <td>05/01/2013</td>
+          <?php
+            if($_SESSION['nivel'] == 1 ||$_SESSION['nivel'] == 0){
+          ?>
+          <td>
+            <button type="button" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-save" aria-hidden="true"></span>PDF
+            </button>
+          </td>
+          <?php
+          }
+          ?>
+        </tr>
+
+      </tbody>
+    </table>
+
     </div>
 
 

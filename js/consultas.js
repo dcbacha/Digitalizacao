@@ -2,15 +2,17 @@ $("#buttonOrden").click(function(){
 	$("#ordendepago").show();
 	$("#numruc").hide();
 	$("#numcheque").hide();
-	$("#botaoConsultar").show();
+	$("#botaoConsulta").show();
 	$("#empresa").show();
+
+	$("#botaoConsulta2").show();
 });
 
 $("#buttonRuc").click(function(){
 	$("#numruc").show();
 	$("#ordendepago").hide();
 	$("#numcheque").hide();
-	$("#botaoConsultar").show();
+	$("#botaoConsulta").show();
 	$("#empresa").show();
 	
 });
@@ -19,7 +21,7 @@ $("#buttonCheque").click(function(){
 	$("#numcheque").show();
 	$("#ordendepago").hide();
 	$("#numruc").hide();
-	$("#botaoConsultar").show();
+	$("#botaoConsulta").show();
 	$("#empresa").show();
 });
 
@@ -29,7 +31,23 @@ $("#buttonconsultar").click(function(){
 
 	setTimeout(function(){
 		$("#spinner").hide();
+		$("#botaoPdf").show();
 		$("#tabelaConsulta").slideDown(200);
+		
+	},300);
+	
+});
+
+
+$("#buttonconsultar2").click(function(){
+
+	$("#spinner").show();
+
+	setTimeout(function(){
+		$("#spinner").hide();
+		$("#botaoPdf2").show();
+		$("#tabelaConsulta2").slideDown(200);
+		
 	},300);
 	
 });

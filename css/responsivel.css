@@ -1,15 +1,25 @@
 /* *******************************************css modificado****************************************** */
 
-@media (max-width: 600px) { 
+@media (max-width: 1200px) { 
  
-  .botao{
-    margin-top: 10px;
-  }
+  .botao{margin-top: 10px;}
 
 }
 
 @media (max-width: 765px){
+  #buttonconsultar{display: none;}
+  #buttonpdf{display: none;}
+  #tabelaDesktop{display: none;}
+
+ 
   
+}
+
+@media (min-width: 765px){
+  #botaoConsulta2{display: none}
+  #buttonconsultar2{display: none;}
+  #buttonpdf2{display: none;}
+  #tabelaMobile{display: none;}
 }
 
 /* ************************************ */
