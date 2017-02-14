@@ -51,3 +51,36 @@ $("#buttonconsultar2").click(function(){
 	},300);
 	
 });
+
+$(".linha1").click(function(){
+	var posY = $(".linha1").position().top;
+
+	$('#lista1').css('position', 'absolute');
+	$('#lista1').css('top', (posY + 10)); //or wherever you want it
+
+	$("#lista1").slideToggle(150);
+	$("#lista2").hide();
+	$("#lista3").hide();
+});
+
+$(".linha2").click(function(){
+	var posY = $(".linha2").position().top;
+
+	$('#lista2').css('position', 'absolute');
+	$('#lista2').css('top', (posY + 10)); //or wherever you want it
+
+	$("#lista1").hide();
+	$("#lista2").slideToggle(150);
+	$("#lista3").hide();
+});
+
+$(".linha3").click(function(){
+	var posY = $(".linha3").position().top;
+
+	$('#lista3').css('position', 'absolute');
+	$('#lista3').css('top', (posY + 10)); //or wherever you want it
+
+	$("#lista1").hide();
+	$("#lista2").hide();
+	$("#lista3").slideToggle(150);
+});

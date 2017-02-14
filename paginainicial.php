@@ -212,6 +212,7 @@ include("verifica.php");
           ?>
         </tr>
 
+
         <tr>
           <td>Empresa C</td>
           <td>7000374902</td>
@@ -239,9 +240,9 @@ include("verifica.php");
     <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsulta2" hidden>
 
 
-    <table class="table table-striped" id="tabelaMobile">
+    <table class="table table-hover" id="tabelaMobile">
       <thead>
-        <tr>
+        <tr >
           <th>Orden de Pago</th>
           <th>Fecha Emisión</th>
           <?php
@@ -255,8 +256,8 @@ include("verifica.php");
       </thead>
       <tbody>    
         <tr>
-          <td>7000003854</td>
-          <td>06/10/2015</td>
+          <td class="linha1">7000003854</td>
+          <td class="linha1">06/10/2015</td>
         
           
           <?php
@@ -273,8 +274,8 @@ include("verifica.php");
 
         </tr>
         <tr>
-          <td>7000076524</td>
-          <td>14/08/2016</td>
+          <td class="linha2">7000076524</td>
+          <td class="linha2">14/08/2016</td>
         
           <?php
             if($_SESSION['nivel'] == 1 ||$_SESSION['nivel'] == 0){
@@ -289,8 +290,8 @@ include("verifica.php");
           ?>
         </tr>
         <tr>
-          <td>7000374902</td>
-          <td>05/01/2013</td>
+          <td  class="linha3">7000374902</td>
+          <td class="linha3">05/01/2013</td>
           <?php
             if($_SESSION['nivel'] == 1 ||$_SESSION['nivel'] == 0){
           ?>
@@ -308,7 +309,38 @@ include("verifica.php");
     </table>
 
     </div>
+    <div style="max-width: 200px;right: 0px;" id="lista1" hidden>
+    <ul class="list-group">
+      <li class="list-group-item">Empresa: A</li>
+      <li class="list-group-item">Orden de Pago: 7000003854</li>
+      <li class="list-group-item">Fecha de Emisión: 06/10/2015</li>
+      <li class="list-group-item">Razón Social: CREATIVE PARK S.A.</li>
+      <li class="list-group-item">RUC: 80080364-7</li>
+      <li class="list-group-item">Cheque: 1048</li>
+    </ul>
+    </div>
 
+    <div style="max-width: 200px;right: 0px;" id="lista2" hidden>
+    <ul class="list-group">
+      <li class="list-group-item">Empresa: B</li>
+      <li class="list-group-item">Orden de Pago: 7000076524</li>
+      <li class="list-group-item">Fecha de Emisión: 14/08/2016</li>
+      <li class="list-group-item">Razón Social: OUTRA RAZON</li>
+      <li class="list-group-item">RUC: 80076241-1</li>
+      <li class="list-group-item">Cheque: 2306</li>
+    </ul>
+    </div>
+
+    <div style="max-width: 200px; right: 0px;" id="lista3" hidden>
+    <ul class="list-group">
+      <li class="list-group-item">Empresa: C</li>
+      <li class="list-group-item">Orden de Pago: 7000374902</li>
+      <li class="list-group-item">Fecha de Emisión: 05/01/2013</li>
+      <li class="list-group-item">Razón Social: RAZON</li>
+      <li class="list-group-item">RUC: 80015629-4</li>
+      <li class="list-group-item">Cheque: 1805</li>
+    </ul>
+    </div>
 
    <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
    <script src="js/bootstrap.min.js"></script>
