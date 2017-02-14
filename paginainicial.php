@@ -108,7 +108,14 @@ include("verifica.php");
           <?php
           }else{
           ?>
-          <input type="text" class="form-control" aria-describedby="basic-addon1">
+          <!--<input type="text" class="form-control" aria-describedby="basic-addon1">-->
+         
+          <select class="form-control">
+            <option></option>
+            <option>Empresa A</option>
+            <option>Empresa B</option>
+            <option>Empresa C</option>
+          </select>
           <?php
           }
           ?>
@@ -124,9 +131,9 @@ include("verifica.php");
     </div>
 
      <div hidden id="botaoConsulta2">
-      <button type="submit" class="btn btn-danger botao" id="buttonconsultar2">Consultar</button>
+      <button type="submit" class="btn btn-primary botao" id="buttonconsultar2">Consultar</button>
       <span hidden id="botaoPdf2">
-        <a href="SalvarParaPDF.php" class="btn btn-warning botao" id="buttonpdf2">Salvar PDF</a>
+        <a href="SalvarParaPDF.php" class="btn btn-success botao" id="buttonpdf2">Salvar PDF</a>
       </span>
     </div>
 
@@ -139,7 +146,7 @@ include("verifica.php");
     </div>
     
 
-    <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsulta2" hidden>
+    <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsulta" hidden>
     
  
     <table class="table table-striped" id="tabelaDesktop">
@@ -227,6 +234,9 @@ include("verifica.php");
 
       </tbody>
     </table>
+    </div>
+
+    <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsulta2" hidden>
 
 
     <table class="table table-striped" id="tabelaMobile">
