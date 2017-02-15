@@ -52,35 +52,32 @@ $("#buttonconsultar2").click(function(){
 	
 });
 
-$(".linha1").click(function(){
-	var posY = $(".linha1").position().top;
-
+$(".linha1").click(function(e){
 	$('#lista1').css('position', 'absolute');
-	$('#lista1').css('top', (posY + 10)); //or wherever you want it
+	$('#lista1').css('top', e.pageY ); //or wherever you want it
+	$('#lista1').css('left', e.pageX);
 
-	$("#lista1").slideToggle(150);
+	$("#lista1").toggle();
 	$("#lista2").hide();
 	$("#lista3").hide();
 });
 
-$(".linha2").click(function(){
-	var posY = $(".linha2").position().top;
-
+$(".linha2").click(function(e){
 	$('#lista2').css('position', 'absolute');
-	$('#lista2').css('top', (posY + 10)); //or wherever you want it
+	$('#lista2').css('top', e.pageY); //or wherever you want it
+	$('#lista2').css('left', e.pageX);
 
 	$("#lista1").hide();
-	$("#lista2").slideToggle(150);
+	$("#lista2").toggle();
 	$("#lista3").hide();
 });
 
-$(".linha3").click(function(){
-	var posY = $(".linha3").position().top;
-
+$(".linha3").click(function(e){
 	$('#lista3').css('position', 'absolute');
-	$('#lista3').css('top', (posY + 10)); //or wherever you want it
+	$('#lista3').css('top', e.pageY); //or wherever you want it
+	$('#lista3').css('left', e.pageX);
 
 	$("#lista1").hide();
 	$("#lista2").hide();
-	$("#lista3").slideToggle(150);
+	$("#lista3").toggle();
 });

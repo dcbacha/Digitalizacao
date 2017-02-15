@@ -57,7 +57,7 @@ include("verifica.php");
       </div>
     </nav>
     
-    <div class="container" style="align-content: center;">
+    <div class="container" style="align-content: center; margin-top: -20px;">
       <h1>Consultar por:</h1>
       <div class="btn-group" role="group" aria-label="...">
         <button type="button" class="btn btn-default" id="buttonOrden">Orden de Pago</button>
@@ -104,7 +104,7 @@ include("verifica.php");
           <?php
             if($_SESSION['nivel'] == 3){
           ?>
-          <input class="form-control" type="text" placeholder="<?=$_SESSION['empresa'] ?>" readonly>
+          <input class="form-control" type="text" placeholder="<?=$_SESSION['empresa'] ?>" disabled>
           <?php
           }else{
           ?>
@@ -309,7 +309,7 @@ include("verifica.php");
     </table>
 
     </div>
-    <div style="max-width: 200px;right: 0px;" id="lista1" hidden>
+    <div style="max-width: 200px;" id="lista1" hidden>
     <ul class="list-group">
       <li class="list-group-item">Empresa: A</li>
       <li class="list-group-item">Orden de Pago: 7000003854</li>
@@ -320,7 +320,7 @@ include("verifica.php");
     </ul>
     </div>
 
-    <div style="max-width: 200px;right: 0px;" id="lista2" hidden>
+    <div style="max-width: 200px;" id="lista2" hidden>
     <ul class="list-group">
       <li class="list-group-item">Empresa: B</li>
       <li class="list-group-item">Orden de Pago: 7000076524</li>
@@ -331,7 +331,7 @@ include("verifica.php");
     </ul>
     </div>
 
-    <div style="max-width: 200px; right: 0px;" id="lista3" hidden>
+    <div style="max-width: 200px;" id="lista3" hidden>
     <ul class="list-group">
       <li class="list-group-item">Empresa: C</li>
       <li class="list-group-item">Orden de Pago: 7000374902</li>
