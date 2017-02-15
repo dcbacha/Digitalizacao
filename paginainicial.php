@@ -19,7 +19,7 @@ include("verifica.php");
 	<link rel="stylesheet" href="css/bootstrap.css">
 
   <link href="css/navbar-fixed-top.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/responsivel.css">
+  <link rel="stylesheet" type="text/css" href="css/responsivel.css">
 
 	
 	<link rel="icon" href="img/psgicon.ico">
@@ -57,6 +57,8 @@ include("verifica.php");
       </div>
     </nav>
     
+
+    <!-- ************************************************************************************************************************************ -->
     <div class="container" style="align-content: center; margin-top: -20px;">
       <h1>Consultar por:</h1>
       <div class="btn-group" role="group" aria-label="...">
@@ -122,7 +124,7 @@ include("verifica.php");
       </div>
     </div>
 
-
+    <!-- Botoes de consulta Desktop e Mobile -->
     <div hidden id="botaoConsulta">
       <button type="submit" class="btn btn-primary botao" id="buttonconsultar">Consultar</button>
       <span hidden id="botaoPdf">
@@ -140,7 +142,7 @@ include("verifica.php");
   
     
 
-
+    <!-- Spinner -->
     <div  style="margin-top: 15px;" class="container" align="center" id="spinner" hidden>
     <img src="img/spinner.gif" alt="">
     </div>
@@ -148,7 +150,7 @@ include("verifica.php");
 
     <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsulta" hidden>
     
- 
+    <!--*********************************************************** Tabela Desktop *********************************************************** -->
     <table class="table table-striped" id="tabelaDesktop">
       <thead>
         <tr>
@@ -160,7 +162,7 @@ include("verifica.php");
           <th>Cheque</th>
           
           <?php
-            if($_SESSION['nivel'] == 1 ||$_SESSION['nivel'] == 0){
+            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
           ?>
           <th></th>
           <?php
@@ -179,7 +181,7 @@ include("verifica.php");
           <td>1048</td>
           
           <?php
-            if($_SESSION['nivel'] == 1 ||$_SESSION['nivel'] == 0){
+            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
           ?>
           <td>
             <button type="button" class="btn btn-default btn-sm">
@@ -200,7 +202,7 @@ include("verifica.php");
           <td>80076241-1</td>
           <td>2306</td>
           <?php
-            if($_SESSION['nivel'] == 1 ||$_SESSION['nivel'] == 0){
+            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
           ?>
           <td>
             <button type="button" class="btn btn-default btn-sm">
@@ -221,7 +223,7 @@ include("verifica.php");
           <td>80015629-4</td>
           <td>1805</td>
           <?php
-            if($_SESSION['nivel'] == 1 ||$_SESSION['nivel'] == 0){
+            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
           ?>
           <td>
             <button type="button" class="btn btn-default btn-sm">
@@ -239,14 +241,14 @@ include("verifica.php");
 
     <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsulta2" hidden>
 
-
+    <!--********************************************************* Tabela Mobile ***************************************************************-->
     <table class="table table-hover" id="tabelaMobile">
       <thead>
         <tr >
           <th>Orden de Pago</th>
           <th>Fecha Emisión</th>
           <?php
-            if($_SESSION['nivel'] == 1 ||$_SESSION['nivel'] == 0){
+            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
           ?>
           <th></th>
           <?php
@@ -256,12 +258,12 @@ include("verifica.php");
       </thead>
       <tbody>    
         <tr>
-          <td class="linha1">7000003854</td>
-          <td class="linha1">06/10/2015</td>
+          <td>7000003854</td>
+          <td>06/10/2015</td>
         
           
           <?php
-            if($_SESSION['nivel'] == 1 ||$_SESSION['nivel'] == 0){
+            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
           ?>
           <td>
             <button type="button" class="btn btn-default btn-sm">
@@ -274,11 +276,23 @@ include("verifica.php");
 
         </tr>
         <tr>
-          <td class="linha2">7000076524</td>
-          <td class="linha2">14/08/2016</td>
+          <td colspan="3">
+            <ul class="list-group">
+              <li class="list-group-item">Empresa: A</li>
+              <li class="list-group-item">Orden de Pago: 7000003854</li>
+              <li class="list-group-item">Fecha de Emisión: 06/10/2015</li>
+              <li class="list-group-item">Razón Social: CREATIVE PARK S.A.</li>
+              <li class="list-group-item">RUC: 80080364-7</li>
+              <li class="list-group-item">Cheque: 1048</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>7000076524</td>
+          <td>14/08/2016</td>
         
           <?php
-            if($_SESSION['nivel'] == 1 ||$_SESSION['nivel'] == 0){
+            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
           ?>
           <td>
             <button type="button" class="btn btn-default btn-sm">
@@ -290,10 +304,22 @@ include("verifica.php");
           ?>
         </tr>
         <tr>
-          <td  class="linha3">7000374902</td>
-          <td class="linha3">05/01/2013</td>
+          <td colspan="3">
+            <ul class="list-group">
+              <li class="list-group-item">Empresa: B</li>
+              <li class="list-group-item">Orden de Pago: 7000076524</li>
+              <li class="list-group-item">Fecha de Emisión: 14/08/2016</li>
+              <li class="list-group-item">Razón Social: OUTRA RAZON</li>
+              <li class="list-group-item">RUC: 80076241-1</li>
+              <li class="list-group-item">Cheque: 2306</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>7000374902</td>
+          <td>05/01/2013</td>
           <?php
-            if($_SESSION['nivel'] == 1 ||$_SESSION['nivel'] == 0){
+            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
           ?>
           <td>
             <button type="button" class="btn btn-default btn-sm">
@@ -303,45 +329,25 @@ include("verifica.php");
           <?php
           }
           ?>
+        </tr>
+        <tr>
+          <td colspan="3">
+             <ul class="list-group">
+                <li class="list-group-item">Empresa: C</li>
+                <li class="list-group-item">Orden de Pago: 7000374902</li>
+                <li class="list-group-item">Fecha de Emisión: 05/01/2013</li>
+                <li class="list-group-item">Razón Social: RAZON</li>
+                <li class="list-group-item">RUC: 80015629-4</li>
+                <li class="list-group-item">Cheque: 1805</li>
+              </ul>
+          </td>
         </tr>
 
       </tbody>
     </table>
 
     </div>
-    <div style="max-width: 200px;" id="lista1" hidden>
-    <ul class="list-group">
-      <li class="list-group-item">Empresa: A</li>
-      <li class="list-group-item">Orden de Pago: 7000003854</li>
-      <li class="list-group-item">Fecha de Emisión: 06/10/2015</li>
-      <li class="list-group-item">Razón Social: CREATIVE PARK S.A.</li>
-      <li class="list-group-item">RUC: 80080364-7</li>
-      <li class="list-group-item">Cheque: 1048</li>
-    </ul>
-    </div>
-
-    <div style="max-width: 200px;" id="lista2" hidden>
-    <ul class="list-group">
-      <li class="list-group-item">Empresa: B</li>
-      <li class="list-group-item">Orden de Pago: 7000076524</li>
-      <li class="list-group-item">Fecha de Emisión: 14/08/2016</li>
-      <li class="list-group-item">Razón Social: OUTRA RAZON</li>
-      <li class="list-group-item">RUC: 80076241-1</li>
-      <li class="list-group-item">Cheque: 2306</li>
-    </ul>
-    </div>
-
-    <div style="max-width: 200px;" id="lista3" hidden>
-    <ul class="list-group">
-      <li class="list-group-item">Empresa: C</li>
-      <li class="list-group-item">Orden de Pago: 7000374902</li>
-      <li class="list-group-item">Fecha de Emisión: 05/01/2013</li>
-      <li class="list-group-item">Razón Social: RAZON</li>
-      <li class="list-group-item">RUC: 80015629-4</li>
-      <li class="list-group-item">Cheque: 1805</li>
-    </ul>
-    </div>
-
+  
    <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
    <script src="js/bootstrap.min.js"></script>
    <script type="text/javascript" src="js/consultas.js"></script>

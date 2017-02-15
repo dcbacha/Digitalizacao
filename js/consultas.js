@@ -2,28 +2,32 @@ $("#buttonOrden").click(function(){
 	$("#ordendepago").show();
 	$("#numruc").hide();
 	$("#numcheque").hide();
-	$("#botaoConsulta").show();
-	$("#empresa").show();
-
-	$("#botaoConsulta2").show();
+	
+	mostrarBotoes();
 });
 
 $("#buttonRuc").click(function(){
-	$("#numruc").show();
 	$("#ordendepago").hide();
+	$("#numruc").show();
 	$("#numcheque").hide();
-	$("#botaoConsulta").show();
-	$("#empresa").show();
+	
+	mostrarBotoes();
 	
 });
 
 $("#buttonCheque").click(function(){
-	$("#numcheque").show();
 	$("#ordendepago").hide();
 	$("#numruc").hide();
+	$("#numcheque").show();
+	
+	mostrarBotoes();
+});
+
+function mostrarBotoes(){
 	$("#botaoConsulta").show();
 	$("#empresa").show();
-});
+	$("#botaoConsulta2").show();
+}
 
 $("#buttonconsultar").click(function(){
 
@@ -52,32 +56,12 @@ $("#buttonconsultar2").click(function(){
 	
 });
 
-$(".linha1").click(function(e){
-	$('#lista1').css('position', 'absolute');
-	$('#lista1').css('top', e.pageY ); //or wherever you want it
-	$('#lista1').css('left', e.pageX);
-
-	$("#lista1").toggle();
-	$("#lista2").hide();
-	$("#lista3").hide();
+$("#tabelaMobile tr:odd").addClass("odd");
+$("#tabelaMobile tr:not(.odd)").hide();
+$("#tabelaMobile tr:first-child").show();
+            
+$("#tabelaMobile tr.odd").click(function(){
+	$(this).next("tr").toggle(250);
+	$(this).find(".row").toggleClass("up");
 });
 
-$(".linha2").click(function(e){
-	$('#lista2').css('position', 'absolute');
-	$('#lista2').css('top', e.pageY); //or wherever you want it
-	$('#lista2').css('left', e.pageX);
-
-	$("#lista1").hide();
-	$("#lista2").toggle();
-	$("#lista3").hide();
-});
-
-$(".linha3").click(function(e){
-	$('#lista3').css('position', 'absolute');
-	$('#lista3').css('top', e.pageY); //or wherever you want it
-	$('#lista3').css('left', e.pageX);
-
-	$("#lista1").hide();
-	$("#lista2").hide();
-	$("#lista3").toggle();
-});
