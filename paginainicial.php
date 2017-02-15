@@ -7,8 +7,6 @@ include("verifica.php");
 
 ?>
 
-
-
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,10 +56,10 @@ include("verifica.php");
     </nav>
     
 
-    <!-- ************************************************************************************************************************************ -->
-    <div class="container" style="align-content: center; margin-top: -20px;">
-      <h1>Consultar por:</h1>
-      <div class="btn-group" role="group" aria-label="...">
+    <!-- *************************************************** Parametros de consulta **************************************************************** -->
+    <div class="container" style="margin-top: -20px;">
+      <h2>Consultar por:</h2>
+      <div class="btn-group" role="group">
         <button type="button" class="btn btn-default" id="buttonOrden">Orden de Pago</button>
         <button type="button" class="btn btn-default" id="buttonRuc">RUC</button>
         <button type="button" class="btn btn-default" id="buttonCheque">Cheque</button>
@@ -104,15 +102,13 @@ include("verifica.php");
         <span class="input-group-addon" >Empresa:</span>
 
           <?php
-            if($_SESSION['nivel'] == 3){
+          if($_SESSION['nivel'] == 3){
           ?>
-          <input class="form-control" type="text" placeholder="<?=$_SESSION['empresa'] ?>" disabled>
+            <input class="form-control" type="text" placeholder="<?=$_SESSION['empresa'] ?>" disabled>
           <?php
           }else{
           ?>
-          <!--<input type="text" class="form-control" aria-describedby="basic-addon1">-->
-         
-          <select class="form-control">
+            <select class="form-control">
             <option></option>
             <option>Empresa A</option>
             <option>Empresa B</option>
@@ -147,10 +143,9 @@ include("verifica.php");
     <img src="img/spinner.gif" alt="">
     </div>
     
-
-    <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsulta" hidden>
-    
     <!--*********************************************************** Tabela Desktop *********************************************************** -->
+    <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsulta" hidden>
+  
     <table class="table table-striped" id="tabelaDesktop">
       <thead>
         <tr>
@@ -238,10 +233,11 @@ include("verifica.php");
       </tbody>
     </table>
     </div>
-
-    <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsulta2" hidden>
+    
 
     <!--********************************************************* Tabela Mobile ***************************************************************-->
+    <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsulta2" hidden>
+
     <table class="table table-hover" id="tabelaMobile">
       <thead>
         <tr >
