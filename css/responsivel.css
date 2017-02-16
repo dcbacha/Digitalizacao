@@ -7,8 +7,8 @@
 }
 
 @media (max-width: 765px){
-  #buttonconsultar{display: none;}
-  #buttonpdf{display: none;}
+  #buttonconsultarDesktop{display: none;}
+  #buttonpdfDesktop{display: none;}
   #tabelaDesktop{display: none;}
 
  
@@ -16,9 +16,9 @@
 }
 
 @media (min-width: 765px){
-  #botaoConsulta2{display: none}
-  #buttonconsultar2{display: none;}
-  #buttonpdf2{display: none;}
+  #botaoConsultaMobile{display: none}
+  #buttonconsultarMobile{display: none;}
+  #buttonpdfMobile{display: none;}
   #tabelaMobile{display: none;}
 }
 

@@ -72,8 +72,8 @@ include("verifica.php");
     <div hidden id="ordendepago" style="margin-top: 15px;">
     <div class="col-lg-4" style="margin-left: -15px;">
       <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Nº Orden de Pago:</span>
-        <input type="text" class="form-control" aria-describedby="basic-addon1">
+        <span class="input-group-addon">Nº Orden de Pago:</span>
+        <input type="text" class="form-control" id="inputOrdenPago">
       </div>
     </div>
     </div>
@@ -81,8 +81,8 @@ include("verifica.php");
     <div hidden id="numruc" style="margin-top: 15px;">
     <div class="col-lg-4" style="margin-left: -15px;">
       <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Nº RUC:</span>
-        <input type="text" class="form-control" aria-describedby="basic-addon1">
+        <span class="input-group-addon">Nº RUC:</span>
+        <input type="text" class="form-control" id="inputRuc">
       </div>
     </div>    
     </div>
@@ -90,29 +90,29 @@ include("verifica.php");
     <div hidden id="numcheque" style="margin-top: 15px;">
     <div class="col-lg-4" style="margin-left: -15px;">
       <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Nº Cheque:</span>
-        <input type="text" class="form-control" aria-describedby="basic-addon1">
+        <span class="input-group-addon">Nº Cheque:</span>
+        <input type="text" class="form-control" id="inputCheque">
       </div>
     </div>
     </div>
 
 
-    <div class="col-lg-4"  style="margin-left: -15px;" id="empresa" hidden>
+    <div class="col-lg-4"  style="margin-left: -15px;" id="botaoempresa" hidden>
       <div class="input-group">
         <span class="input-group-addon" >Empresa:</span>
 
           <?php
           if($_SESSION['nivel'] == 3){
           ?>
-            <input class="form-control" type="text" placeholder="<?=$_SESSION['empresa'] ?>" disabled>
+            <input class="form-control" type="text" placeholder="<?=$_SESSION['empresa'] ?>" disabled id="inputEmpresa">
           <?php
           }else{
           ?>
-            <select class="form-control">
+            <select class="form-control" id="inputEmpresa">
             <option></option>
-            <option>Empresa A</option>
-            <option>Empresa B</option>
-            <option>Empresa C</option>
+            <option>1</option>
+            <option>3</option>
+            <option>4</option>
           </select>
           <?php
           }
@@ -121,17 +121,17 @@ include("verifica.php");
     </div>
 
     <!-- Botoes de consulta Desktop e Mobile -->
-    <div hidden id="botaoConsulta">
-      <button type="submit" class="btn btn-primary botao" id="buttonconsultar">Consultar</button>
-      <span hidden id="botaoPdf">
-        <a href="SalvarParaPDF.php" class="btn btn-success botao" id="buttonpdf">Salvar PDF</a>
+    <div hidden id="botaoConsultaDesktop">
+      <button type="submit" class="btn btn-primary botao" id="buttonconsultarDesktop">Consultar</button>
+      <span hidden id="botaoPdfDesktop">
+        <a href="SalvarParaPDF.php" class="btn btn-success botao" id="buttonpdfDesktop">Salvar PDF</a>
       </span>
     </div>
 
-     <div hidden id="botaoConsulta2">
-      <button type="submit" class="btn btn-primary botao" id="buttonconsultar2">Consultar</button>
-      <span hidden id="botaoPdf2">
-        <a href="SalvarParaPDF.php" class="btn btn-success botao" id="buttonpdf2">Salvar PDF</a>
+     <div hidden id="botaoConsultaMobile">
+      <button type="submit" class="btn btn-primary botao" id="buttonconsultarMobile">Consultar</button>
+      <span hidden id="botaoPdfMobile">
+        <a href="SalvarParaPDF.php" class="btn btn-success botao" id="buttonpdfMobile">Salvar PDF</a>
       </span>
     </div>
 
@@ -143,11 +143,30 @@ include("verifica.php");
     <img src="img/spinner.gif" alt="">
     </div>
     
+    <!-- Alerta de Erros -->
+    <div class="alert alert-danger" role="alert" id="erroConsulta1" hidden style="margin-top: 10px;">
+          <strong>Erro!</strong> Preencha os campos corretamente.
+    </div>
+    
+    <div class="alert alert-warning" role="alert" id="erroConsulta2" hidden style="margin-top: 10px;">
+          Não foi encontrado nenhum documento.
+    </div>
+
+    <div class="alert alert-warning" role="alert" id="erroConsulta3" hidden style="margin-top: 10px;">
+          Algo deu errado.
+    </div>
     <!--*********************************************************** Tabela Desktop *********************************************************** -->
-    <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsulta" hidden>
+    <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsultaDesktop" hidden>
   
     <table class="table table-striped" id="tabelaDesktop">
       <thead>
+      </thead>
+
+      <tbody>
+      </tbody>
+    </table>
+    </div>
+<!--      <thead>
         <tr>
           <th>Empresa</th>
           <th>Orden de Pago</th>
@@ -236,10 +255,16 @@ include("verifica.php");
     
 
     <!--********************************************************* Tabela Mobile ***************************************************************-->
-    <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsulta2" hidden>
+    <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsultaMobile" hidden>
 
     <table class="table table-hover" id="tabelaMobile">
       <thead>
+      </thead>
+      <tbody>
+      </tbody>
+     </table>
+    </div>
+ <!--     <thead>
         <tr >
           <th>Orden de Pago</th>
           <th>Fecha Emisión</th>
@@ -340,13 +365,13 @@ include("verifica.php");
         </tr>
 
       </tbody>
-    </table>
+    </table> 
 
-    </div>
+    </div>-->
   
    <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
    <script src="js/bootstrap.min.js"></script>
-   <script type="text/javascript" src="js/consultas.js"></script>
+   <script type="text/javascript" src="js/main.js"></script>
 
 </body>
 </html>
