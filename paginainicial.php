@@ -113,6 +113,7 @@ include("verifica.php");
             <option>1</option>
             <option>3</option>
             <option>4</option>
+            <option>AM REGUERA S.A.</option>
           </select>
           <?php
           }
@@ -168,21 +169,21 @@ include("verifica.php");
     </div>
 <!--      <thead>
         <tr>
-          <th>Empresa</th>
+          <th>Fecha de Emisión</th>
           <th>Orden de Pago</th>
-          <th>Fecha Emisión</th>
-          <th>Razón Social</th>
-          <th>RUC</th>
+          <th>Estado</th>
+          <th>Credor</th>
+          <th>Empresa</th>
           <th>Cheque</th>
+          <th>RUC</th>
           
           <?php
-            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
+          if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
           ?>
-          <th></th>
+            <th></th>
           <?php
           }
           ?>
-          
         </tr>
       </thead>
       <tbody>    
@@ -208,47 +209,6 @@ include("verifica.php");
 
         </tr>
 
-        <tr>
-          <td>Empresa B</td>
-          <td>7000076524</td>
-          <td>14/08/2016</td>
-          <td>OUTRA RAZON</td>
-          <td>80076241-1</td>
-          <td>2306</td>
-          <?php
-            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
-          ?>
-          <td>
-            <button type="button" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-save" aria-hidden="true"></span>PDF
-            </button>
-          </td>
-          <?php
-          }
-          ?>
-        </tr>
-
-
-        <tr>
-          <td>Empresa C</td>
-          <td>7000374902</td>
-          <td>05/01/2013</td>
-          <td>RAZON</td>
-          <td>80015629-4</td>
-          <td>1805</td>
-          <?php
-            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
-          ?>
-          <td>
-            <button type="button" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-save" aria-hidden="true"></span>PDF
-            </button>
-          </td>
-          <?php
-          }
-          ?>
-        </tr>
-
       </tbody>
     </table>
     </div>
@@ -259,6 +219,18 @@ include("verifica.php");
 
     <table class="table table-hover" id="tabelaMobile">
       <thead>
+        <tr>
+          <th>Fecha de Emisión</th>
+          <th>Orden de Pago</th>
+          <?php
+          if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
+          ?>
+            <th></th>
+          <?php
+          }
+          ?>
+        </tr>
+
       </thead>
       <tbody>
       </tbody>
