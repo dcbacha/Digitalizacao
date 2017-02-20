@@ -8,6 +8,7 @@
 
 @media (max-width: 765px){
   #buttonconsultarDesktop{display: none;}
+  #buttonconsultarDesktopPresidente{display: none;}
   #buttonpdfDesktop{display: none;}
   #tabelaDesktop{display: none;}
 
@@ -18,6 +19,7 @@
 @media (min-width: 765px){
   #botaoConsultaMobile{display: none}
   #buttonconsultarMobile{display: none;}
+  #buttonconsultarMobilePresidente{display: none;}
   #buttonpdfMobile{display: none;}
   #tabelaMobile{display: none;}
 }

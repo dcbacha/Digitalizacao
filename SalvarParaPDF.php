@@ -1,4 +1,12 @@
 <?php
+require_once("config.php");
+
+
+header("Content-Type: application/json; charset=utf-8");
+
+
+//$dados = json_decode($_POST["dados"], true);
+$dados = $_POST['dados'];
 
 ob_start();
 ?>
@@ -21,42 +29,45 @@ ob_start();
 <table border="1" cellspacing="0" width="100%" style="border-collapse:collapse;">
       <thead>
         <tr bgcolor="#CCC" >
-          <th>Empresa</th>
+          <th>Fecha de Emisión</th>
           <th>Orden de Pago</th>
-          <th>Fecha Emisión</th>
-          <th>Razón Social</th>
-          <th>RUC</th>
+          <th>Estado</th>
+          <th>Credor</th>
+          <th>Empresa</th>
           <th>Cheque</th>
+          <th>RUC</th>
         </tr>
       </thead>
       <tbody>    
+       
         <tr>
-          <td>Empresa A</td>
-          <td>7000003854</td>
-          <td>06/10/2015</td>
-          <td>CREATIVE PARK S.A.</td>
-          <td>80080364-7</td>
-          <td>1048</td>
-        </tr>
+        <td><?=$dados['ruc'][7]; ?></td>
+         <?php
 
-        <tr>
-          <td>Empresa B</td>
-          <td>7000076524</td>
-          <td>14/08/2016</td>
-          <td>OUTRA RAZON</td>
-          <td>80076241-1</td>
-          <td>2306</td>
-        </tr>
+         foreach ($dados as $result){
 
-        <tr>
-          <td>Empresa C</td>
-          <td>7000374902</td>
-          <td>05/01/2013</td>
-          <td>RAZON</td>
-          <td>80015629-4</td>
-          <td>1805</td>
-        </tr>
+          $fecha_de_emision = $result['fecha_de_emision'];
+          $orden_de_pago = $result['orden_de_pago'];
+          $estado = $result['estado'];
+          $credor = $result['credor'];
+          $empresa = $result['empresa'];
+          $cheque = $result['cheque'];
+          $ruc = $result['ruc'];
 
+         ?>
+
+          <td><?=$fecha_de_emision ?></td>
+          <td><?=$orden_de_pago ?></td>
+          <td><?=$estado ?></td>
+          <td><?=$credor ?></td>
+          <td><?=$empresa ?></td>
+          <td><?=$cheque ?></td>
+          <td><?=$ruc ?></td>
+
+         <?php
+          }
+         ?>
+        </tr>
       </tbody>
     </table>
 </body>
@@ -76,7 +87,7 @@ $body = ob_get_clean();
         $mpdf->WriteHTML($body);
  
         //output pdf
-      	$mpdf->Output('OrdenDePago.pdf','D');
+      	$mpdf->Output('Relatorio_OrdenDePago.pdf','D');
         //$mpdf->Output();
 
         

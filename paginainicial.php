@@ -104,16 +104,15 @@ include("verifica.php");
           <?php
           if($_SESSION['nivel'] == 3){
           ?>
-            <input class="form-control" type="text" placeholder="<?=$_SESSION['empresa'] ?>" disabled id="inputEmpresa">
+           <!-- <input class="form-control" type="text" value="1" disabled id="inputEmpresa">-->
+            <select class="form-control" id="inputEmpresa" disabled>
+            <option value="1">AM REGUERA S.A.</option>
+            </select>
           <?php
           }else{
           ?>
             <select class="form-control" id="inputEmpresa">
             <option></option>
-            <option>1</option>
-            <option>3</option>
-            <option>4</option>
-            <option>AM REGUERA S.A.</option>
           </select>
           <?php
           }
@@ -122,21 +121,43 @@ include("verifica.php");
     </div>
 
     <!-- Botoes de consulta Desktop e Mobile -->
+   
+
     <div hidden id="botaoConsultaDesktop">
-      <button type="submit" class="btn btn-primary botao" id="buttonconsultarDesktop">Consultar</button>
+      <?php
+      if($_SESSION['nivel'] == 1){
+      ?>
+      <button type="submit" class="btn btn-primary botao" id="buttonconsultarDesktopPresidente">Consultar</button>
+       <?php
+      }else{
+      ?>
+        <button type="submit" class="btn btn-primary botao" id="buttonconsultarDesktop">Consultar</button>
+      <?php
+      }
+      ?>
       <span hidden id="botaoPdfDesktop">
-        <a href="SalvarParaPDF.php" class="btn btn-success botao" id="buttonpdfDesktop">Salvar PDF</a>
+        <button class="btn btn-success botao pdf" id="buttonPdfDesktop">Salvar PDF</button>
       </span>
     </div>
 
      <div hidden id="botaoConsultaMobile">
-      <button type="submit" class="btn btn-primary botao" id="buttonconsultarMobile">Consultar</button>
+     <?php
+     if($_SESSION['nivel'] == 1){
+      ?>
+        <button type="submit" class="btn btn-primary botao" id="buttonconsultarMobilePresidente">Consultar</button>
+      <?php
+      }else{
+      ?>
+        <button type="submit" class="btn btn-primary botao" id="buttonconsultarMobile">Consultar</button>
+      <?php
+      }
+      ?>
       <span hidden id="botaoPdfMobile">
-        <a href="SalvarParaPDF.php" class="btn btn-success botao" id="buttonpdfMobile">Salvar PDF</a>
+        <button class="btn btn-success botao pdf" id="buttonPdfMobile">Salvar PDF</button>
       </span>
     </div>
+    </form>
 
-  
     
 
     <!-- Spinner -->
@@ -167,51 +188,7 @@ include("verifica.php");
       </tbody>
     </table>
     </div>
-<!--      <thead>
-        <tr>
-          <th>Fecha de Emisión</th>
-          <th>Orden de Pago</th>
-          <th>Estado</th>
-          <th>Credor</th>
-          <th>Empresa</th>
-          <th>Cheque</th>
-          <th>RUC</th>
-          
-          <?php
-          if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
-          ?>
-            <th></th>
-          <?php
-          }
-          ?>
-        </tr>
-      </thead>
-      <tbody>    
-        <tr>
-          <td>Empresa A</td>
-          <td>7000003854</td>
-          <td>06/10/2015</td>
-          <td>CREATIVE PARK S.A.</td>
-          <td>80080364-7</td>
-          <td>1048</td>
-          
-          <?php
-            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
-          ?>
-          <td>
-            <button type="button" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-save" aria-hidden="true"></span>PDF
-            </button>
-          </td>
-          <?php
-          }
-          ?>
 
-        </tr>
-
-      </tbody>
-    </table>
-    </div>
     
 
     <!--********************************************************* Tabela Mobile ***************************************************************-->
@@ -219,127 +196,15 @@ include("verifica.php");
 
     <table class="table table-hover" id="tabelaMobile">
       <thead>
-        <tr>
-          <th>Fecha de Emisión</th>
-          <th>Orden de Pago</th>
-          <?php
-          if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
-          ?>
-            <th></th>
-          <?php
-          }
-          ?>
-        </tr>
 
       </thead>
       <tbody>
       </tbody>
      </table>
     </div>
- <!--     <thead>
-        <tr >
-          <th>Orden de Pago</th>
-          <th>Fecha Emisión</th>
-          <?php
-            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
-          ?>
-          <th></th>
-          <?php
-          }
-          ?>
-        </tr>
-      </thead>
-      <tbody>    
-        <tr>
-          <td>7000003854</td>
-          <td>06/10/2015</td>
-        
-          
-          <?php
-            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
-          ?>
-          <td>
-            <button type="button" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-save" aria-hidden="true"></span>PDF
-            </button>
-          </td>
-          <?php
-          }
-          ?>
 
-        </tr>
-        <tr>
-          <td colspan="3">
-            <ul class="list-group">
-              <li class="list-group-item">Empresa: A</li>
-              <li class="list-group-item">Orden de Pago: 7000003854</li>
-              <li class="list-group-item">Fecha de Emisión: 06/10/2015</li>
-              <li class="list-group-item">Razón Social: CREATIVE PARK S.A.</li>
-              <li class="list-group-item">RUC: 80080364-7</li>
-              <li class="list-group-item">Cheque: 1048</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>7000076524</td>
-          <td>14/08/2016</td>
-        
-          <?php
-            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
-          ?>
-          <td>
-            <button type="button" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-save" aria-hidden="true"></span>PDF
-            </button>
-          </td>
-          <?php
-          }
-          ?>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <ul class="list-group">
-              <li class="list-group-item">Empresa: B</li>
-              <li class="list-group-item">Orden de Pago: 7000076524</li>
-              <li class="list-group-item">Fecha de Emisión: 14/08/2016</li>
-              <li class="list-group-item">Razón Social: OUTRA RAZON</li>
-              <li class="list-group-item">RUC: 80076241-1</li>
-              <li class="list-group-item">Cheque: 2306</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>7000374902</td>
-          <td>05/01/2013</td>
-          <?php
-            if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){
-          ?>
-          <td>
-            <button type="button" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-save" aria-hidden="true"></span>PDF
-            </button>
-          </td>
-          <?php
-          }
-          ?>
-        </tr>
-        <tr>
-          <td colspan="3">
-             <ul class="list-group">
-                <li class="list-group-item">Empresa: C</li>
-                <li class="list-group-item">Orden de Pago: 7000374902</li>
-                <li class="list-group-item">Fecha de Emisión: 05/01/2013</li>
-                <li class="list-group-item">Razón Social: RAZON</li>
-                <li class="list-group-item">RUC: 80015629-4</li>
-                <li class="list-group-item">Cheque: 1805</li>
-              </ul>
-          </td>
-        </tr>
-
-      </tbody>
-    </table> 
-
-    </div>-->
+   
+ 
   
    <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
    <script src="js/bootstrap.min.js"></script>
@@ -347,3 +212,5 @@ include("verifica.php");
 
 </body>
 </html>
+
+
