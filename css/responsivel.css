@@ -11,6 +11,7 @@
   #buttonconsultarDesktopPresidente{display: none;}
   #buttonpdfDesktop{display: none;}
   #tabelaDesktop{display: none;}
+  #buttonPdfDesktop{display: none;}
 
  
   
@@ -22,6 +23,7 @@
   #buttonconsultarMobilePresidente{display: none;}
   #buttonpdfMobile{display: none;}
   #tabelaMobile{display: none;}
+  #buttonPdfMobile{display: none;}
 }
 
 /* ************************************ */

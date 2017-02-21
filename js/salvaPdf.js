@@ -1,31 +1,19 @@
 $("#buttonPdfMobile").click(function(){
 
-	
-
-
-/*	var dadosTabela = [];
-
-	var fecha_de_emision = $("#tabelaMobile tr:even li:eq(0)").html().split(": ")[1];
-	var orden_de_pago = $("#tabelaMobile tr:even li:eq(1)").html().split(": ")[1];
-
-	var login = {
-		email: fecha_de_emision,
-		senha: orden_de_pago
-	};
-
-	var table = JSON.stringify(login);
-	var tablejson = {"dados" : table }; 
-	console.log(tablejson); */
 
 	var dadosTabela = [];
 
-	var fecha_de_emision = $("#tabelaMobile tr:even li:eq(0)").html().split(": ")[1];
-	var orden_de_pago = $("#tabelaMobile tr:even li:eq(1)").html().split(": ")[1];
-		var estado = $("#tabelaMobile tr:even li:eq(2)").html().split(": ")[1];
-		var credor = $("#tabelaMobile tr:even li:eq(3)").html().split(": ")[1];
-		var empresa = $("#tabelaMobile tr:even li:eq(4)").html().split(": ")[1];
-		var cheque = $("#tabelaMobile tr:even li:eq(5)").html().split(": ")[1];
-		var ruc = $("#tabelaMobile tr:even li:eq(6)").html().split(": ")[1];
+	var total = $("#tabelaMobile tr:odd").length;
+
+	console.log("total: "+total);
+	for(let i=1; i<= total; i++){
+		var fecha_de_emision = $("#tabelaMobile tr:eq("+(i*2)+") li:eq(0)").html().split(": ")[1];
+		var orden_de_pago = $("#tabelaMobile tr:eq("+(i*2)+") li:eq(1)").html().split(": ")[1];
+		var estado = $("#tabelaMobile tr:eq("+(i*2)+") li:eq(2)").html().split(": ")[1];
+		var credor = $("#tabelaMobile tr:eq("+(i*2)+") li:eq(3)").html().split(": ")[1];
+		var empresa = $("#tabelaMobile tr:eq("+(i*2)+") li:eq(4)").html().split(": ")[1];
+		var cheque = $("#tabelaMobile tr:eq("+(i*2)+") li:eq(5)").html().split(": ")[1];
+		var ruc = $("#tabelaMobile tr:eq("+(i*2)+") li:eq(6)").html().split(": ")[1];
 		
 
 		console.log(fecha_de_emision);
@@ -34,23 +22,23 @@ $("#buttonPdfMobile").click(function(){
 		console.log(credor);
 		console.log(empresa);
 		console.log(cheque);
-		console.log(ruc);
+		console.log(ruc); 
 
 		//console.log(i);
 
 		var dados = {
-			"fecha_de_emision": fecha_de_emision,
-			"orden_de_pago": orden_de_pago,
-			"estado": estado,
-			"credor": credor,
-			"empresa": empresa,
-			"cheque": cheque,
-			"ruc": ruc,
+			fecha_de_emision: fecha_de_emision,
+			orden_de_pago: orden_de_pago,
+			estado: estado,
+			credor: credor,
+			empresa: empresa,
+			cheque: cheque,
+			ruc: ruc,
 		};
 
-		//dadosTabela.push(dados);
-	//}
-	dadosTabela = JSON.stringify(dados);
+		dadosTabela.push(dados);
+	}
+	dadosTabela = JSON.stringify(dadosTabela);
 
 	console.log(dadosTabela);
 
@@ -90,32 +78,18 @@ $("#buttonPdfMobile").click(function(){
 //*********************************************************************Desktop
 $("#buttonPdfDesktop").click(function(){
 
-	
-
-
-/*	var dadosTabela = [];
-
-	var fecha_de_emision = $("#tabelaMobile tr:even li:eq(0)").html().split(": ")[1];
-	var orden_de_pago = $("#tabelaMobile tr:even li:eq(1)").html().split(": ")[1];
-
-	var login = {
-		email: fecha_de_emision,
-		senha: orden_de_pago
-	};
-
-	var table = JSON.stringify(login);
-	var tablejson = {"dados" : table }; 
-	console.log(tablejson); */
-
 	var dadosTabela = [];
+	var total = $("#tabelaDesktop tbody>tr").length;
 
-		var fecha_de_emision = $("#tabelaDesktop td:eq(0)").html();
-		var orden_de_pago = $("#tabelaDesktop td:eq(1)").html();
-		var estado = $("#tabelaDesktop td:eq(2)").html();
-		var credor = $("#tabelaDesktop td:eq(3)").html();
-		var empresa = $("#tabelaDesktop td:eq(4)").html();
-		var cheque = $("#tabelaDesktop td:eq(5)").html();
-		var ruc = $("#tabelaDesktop td:eq(6)").html();
+	console.log("total: "+total);
+	for(let i=1; i<= total; i++){
+		var fecha_de_emision = $("#tabelaDesktop tr:eq("+i+") td:eq(0)").html();
+		var orden_de_pago = $("#tabelaDesktop tr:eq("+i+") td:eq(1)").html();
+		var estado = $("#tabelaDesktop tr:eq("+i+") td:eq(2)").html();
+		var credor = $("#tabelaDesktop tr:eq("+i+") td:eq(3)").html();
+		var empresa = $("#tabelaDesktop tr:eq("+i+") td:eq(4)").html();
+		var cheque = $("#tabelaDesktop tr:eq("+i+") td:eq(5)").html();
+		var ruc = $("#tabelaDesktop tr:eq("+i+") td:eq(6)").html();
 		
 
 		console.log(fecha_de_emision);
@@ -138,9 +112,9 @@ $("#buttonPdfDesktop").click(function(){
 			"ruc": ruc,
 		};
 
-		//dadosTabela.push(dados);
-	//}
-	dadosTabela = JSON.stringify(dados);
+		dadosTabela.push(dados);
+	}
+	dadosTabela = JSON.stringify(dadosTabela);
 
 	console.log(dadosTabela);
 
@@ -163,7 +137,7 @@ $("#buttonPdfDesktop").click(function(){
 				},
 	        success: function(data) {
 	        	console.log("transmitidos com sucesso!");
-				console.log(data);
+			//	console.log(data);
 				window.location.replace("http://localhost/Digitalizacao/SalvarParaPDF.php");
 			
 	        	}
