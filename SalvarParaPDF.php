@@ -5,8 +5,7 @@ require_once("config.php");
 header("Content-Type: application/json; charset=utf-8");
 
 
-//$dados = json_decode($_POST["dados"], true);
-$dados = $_POST['dados'];
+
 
 ob_start();
 ?>
@@ -41,31 +40,43 @@ ob_start();
       <tbody>    
        
         <tr>
-        <td><?=$dados['ruc'][7]; ?></td>
          <?php
 
-         foreach ($dados as $result){
+         if(isset($_POST["dados"])){
+            $dados = json_decode($_POST["dados"], true);
 
-          $fecha_de_emision = $result['fecha_de_emision'];
+          $_SESSION['fecha_de_emision'] = $dados['fecha_de_emision'];
+          $_SESSION['orden_de_pago'] = $dados['orden_de_pago'];
+          $_SESSION['estado'] = $dados['estado'];
+          $_SESSION['credor'] = $dados['credor'];
+          $_SESSION['empresa'] = $dados['empresa'];
+          $_SESSION['cheque'] = $dados['cheque'];
+          $_SESSION['ruc'] = $dados['ruc'];
+
+          
+          }
+         
+
+      /*    $fecha_de_emision = $result['fecha_de_emision'];
           $orden_de_pago = $result['orden_de_pago'];
           $estado = $result['estado'];
           $credor = $result['credor'];
           $empresa = $result['empresa'];
           $cheque = $result['cheque'];
-          $ruc = $result['ruc'];
+          $ruc = $result['ruc']; */
 
          ?>
 
-          <td><?=$fecha_de_emision ?></td>
-          <td><?=$orden_de_pago ?></td>
-          <td><?=$estado ?></td>
-          <td><?=$credor ?></td>
-          <td><?=$empresa ?></td>
-          <td><?=$cheque ?></td>
-          <td><?=$ruc ?></td>
+          <td align="center"><?=$_SESSION['fecha_de_emision']; ?></td>
+          <td align="center"><?=$_SESSION['orden_de_pago']; ?></td>
+          <td align="center"><?=$_SESSION['estado']; ?></td>
+          <td align="center"><?=$_SESSION['credor']; ?></td>
+          <td align="center"><?=$_SESSION['empresa']; ?></td>
+          <td align="center"><?=$_SESSION['cheque']; ?></td>
+          <td align="center"><?=$_SESSION['ruc']; ?></td>
 
          <?php
-          }
+          
          ?>
         </tr>
       </tbody>

@@ -13,17 +13,8 @@ $senha = $dados['senha'];
 
 $sql = "SELECT * FROM `users` WHERE email = '{$email}' AND senha = '{$senha}'";
 
-//echo $sql;
-
 
 $usuarios = array();
-
- //or die( 'Falha na conexão com banco de dados');
-
-
-
-
-
 
 
 $resultado = mysqli_query($conexao, $sql);
@@ -53,12 +44,7 @@ if($rows == 1){
 }
 else{
 	echo 1;
-	// $response_array['status'] = 'error';  
 }
-
-//echo json_encode($response_array);
-
-//$id = mysqli_insert_id($conexao);
 
 
 ?>
