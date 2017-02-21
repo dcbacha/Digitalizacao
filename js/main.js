@@ -172,23 +172,29 @@ $("#buttonconsultarDesktopPresidente").click(function(){
 											           " if($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 0){"+
 											          "?>"+
 											          "<td>"+
-											            "<a type='button' class='btn btn-default btn-sm' id="+id+">"+
+											            "<button type='button' class='btn btn-default btn-sm clkPdf' id="+id+">"+
 											             " <span class='glyphicon glyphicon-save' aria-hidden='true'></span>PDF"+
-											            "</a>"+
+											            "</button>"+
+											             "<div align='center' id='spinnerPDF"+id+"' hidden>"+
+														    "<img src='img/spinner.gif' alt='carregando...' height='20'>"+
+														"</div>"+
 											          "</td>"+
 											          "<?php"+
 											          "}"+
 											         " ?>"+
 											       " </tr>");
 
-					$('#'+id).click(function(){
-						console.log("clicou: "+id);
-						download(id);
-					});
+				
 
 				}
 				$("#botaoPdfDesktop").show();
 				$("#tabelaConsultaDesktop").slideDown(200);
+
+				$('.clkPdf').click(function(){
+						var id = $(this).attr("id");
+						console.log("clicou: "+id);
+						download(id);
+				});
 	    	}
 		}
 	})
@@ -308,8 +314,8 @@ $("#buttonconsultarMobilePresidente").click(function(){
 	$.ajax({
 	    type: 'POST',
 	    dataType: 'json',
-	  //  url: 'http://intranetpsg.psg.local/sgda_py/api/engine/post',
-	    url:'http://190.128.212.2/sgda/api/engine/post' ,
+	    url: 'http://intranetpsg.psg.local/sgda_py/api/engine/post',
+	  //  url:'http://190.128.212.2/sgda/api/engine/post' ,
 	    data:  parametros,
 	    headers: { 
         	'Accept': 'application/json',
@@ -367,9 +373,13 @@ $("#buttonconsultarMobilePresidente").click(function(){
 											          "<td>"+cd_fecha_emision+"</td>"+
 											          "<td>"+cd_orden_pago+"</td>"+
 											          "<td>"+
-											           " <button type='button' class='btn btn-default btn-sm' id="+id+">"+
+											           " <button type='button' class='btn btn-default btn-sm clkPdf' id="+id+">"+
 											            "  <span class='glyphicon glyphicon-save' aria-hidden='true'></span>PDF"+
 											            "</button>"+
+											            "<div align='center' id='spinnerPDF"+id+"' hidden>"+
+														    "<img src='img/spinner.gif' alt='carregando...' height='15'>"+
+														"</div>"+
+    
 											          "</td>"+
 
 											        "</tr>"+
@@ -388,13 +398,6 @@ $("#buttonconsultarMobilePresidente").click(function(){
 											        "</tr>");
 
 
-					
-					$('#'+id).click(function(){
-						console.log("clicou: "+id);
-						download(id);
-					});
-
-
 
 				} // final do for
 
@@ -406,6 +409,14 @@ $("#buttonconsultarMobilePresidente").click(function(){
 					$("#tabelaMobile tr.odd").click(function(){
 						$(this).next("tr").toggle(250);
 						$(this).find(".row").toggleClass("up");
+					});
+
+
+
+					$('.clkPdf').click(function(){
+						var id = $(this).attr("id");
+						console.log("clicou: "+id);
+						download(id);
 					});
 	    		});
 
@@ -553,7 +564,9 @@ $("#buttonconsultarMobile").click(function(){
 //***********************************************************************************************************************************************************
 
 function download(id){
-	$("#spinner").show();
+	//$("#spinner").show();
+	$("#"+id).hide();
+	$("#spinnerPDF"+id).show();
 
 	console.log("veio pro download:"+id);
 
@@ -576,7 +589,10 @@ function download(id){
 			console.log("erro, nao transmitiu")
 		//	console.log(data);
 			erro3();
-			$("#spinner").hide();
+			//$("#spinner").hide();
+			$("#spinnerPDF"+id).hide();
+			$("#"+id).show();
+	
 			},
      	success: function(data) {
      	//	console.log(data);
@@ -601,7 +617,9 @@ function download(id){
 		.done(function(data){
 			console.log("finalizado!");
 			//console.log(data);
-			$("#spinner").hide();	
+			//$("#spinner").hide();
+			$("#spinnerPDF"+id).hide();
+			$("#"+id).show();
 		}); 
 }
 

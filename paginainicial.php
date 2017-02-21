@@ -194,7 +194,7 @@ include("verifica.php");
     <!--********************************************************* Tabela Mobile ***************************************************************-->
     <div class="container" style="margin-top: 15px; margin-left: -15px;" id="tabelaConsultaMobile" hidden>
 
-    <table class="table table-hover" id="tabelaMobile">
+    <table class="table table-condensed" id="tabelaMobile">
       <thead>
 
       </thead>
