@@ -176,7 +176,7 @@ $("#buttonconsultarDesktopPresidente").click(function(){
 											             " <span class='glyphicon glyphicon-save' aria-hidden='true'></span>PDF"+
 											            "</button>"+
 											             "<div align='center' id='spinnerPDF"+id+"' hidden>"+
-														    "<img src='img/spinner.gif' alt='carregando...' height='20'>"+
+														    "<img src='img/spinner.gif' alt='carregando...' height='18'>"+
 														"</div>"+
 											          "</td>"+
 											          "<?php"+
@@ -314,8 +314,8 @@ $("#buttonconsultarMobilePresidente").click(function(){
 	$.ajax({
 	    type: 'POST',
 	    dataType: 'json',
-	    url: 'http://intranetpsg.psg.local/sgda_py/api/engine/post',
-	  //  url:'http://190.128.212.2/sgda/api/engine/post' ,
+	  //  url: 'http://intranetpsg.psg.local/sgda_py/api/engine/post',
+	    url:'http://190.128.212.2/sgda/api/engine/post' ,
 	    data:  parametros,
 	    headers: { 
         	'Accept': 'application/json',
@@ -377,10 +377,9 @@ $("#buttonconsultarMobilePresidente").click(function(){
 											            "  <span class='glyphicon glyphicon-save' aria-hidden='true'></span>PDF"+
 											            "</button>"+
 											            "<div align='center' id='spinnerPDF"+id+"' hidden>"+
-														    "<img src='img/spinner.gif' alt='carregando...' height='15'>"+
+														    "<img src='img/spinner.gif' alt='carregando...' height='18'>"+
 														"</div>"+
-    
-											          "</td>"+
+    										          "</td>"+
 
 											        "</tr>"+
 													"<tr>"+
@@ -402,23 +401,24 @@ $("#buttonconsultarMobilePresidente").click(function(){
 				} // final do for
 
 					$(document).ready(function(){
-					$("#tabelaMobile tr:odd").addClass("odd");
-					$("#tabelaMobile tr:not(.odd)").hide();
-					$("#tabelaMobile tr:first-child").show();
-					            
-					$("#tabelaMobile tr.odd").click(function(){
-						$(this).next("tr").toggle(250);
-						$(this).find(".row").toggleClass("up");
-					});
+						$("#tabelaMobile tr:odd").addClass("odd");
+						$("#tabelaMobile tr:not(.odd)").hide();
+						$("#tabelaMobile tr:first-child").show();
+
+						animacao();
+						
+						$("#tabelaMobile tr.odd").click(function(){
+							$(this).next("tr").toggle(250);
+							$(this).find(".row").toggleClass("up");
+						});
 
 
-
-					$('.clkPdf').click(function(){
-						var id = $(this).attr("id");
-						console.log("clicou: "+id);
-						download(id);
-					});
-	    		});
+						$('.clkPdf').click(function(){
+							var id = $(this).attr("id");
+							console.log("clicou: "+id);
+							download(id);
+						});
+	    			});
 
 
 				$("#botaoPdfMobile").show();
@@ -531,15 +531,17 @@ $("#buttonconsultarMobile").click(function(){
 				} // final do for
 
 					$(document).ready(function(){
-					$("#tabelaMobile tr:odd").addClass("odd");
-					$("#tabelaMobile tr:not(.odd)").hide();
-					$("#tabelaMobile tr:first-child").show();
-					            
-					$("#tabelaMobile tr.odd").click(function(){
-						$(this).next("tr").toggle(250);
-						$(this).find(".row").toggleClass("up");
-					});
-	    		});
+						$("#tabelaMobile tr:odd").addClass("odd");
+						$("#tabelaMobile tr:not(.odd)").hide();
+						$("#tabelaMobile tr:first-child").show();
+
+						animacao();
+						            
+						$("#tabelaMobile tr.odd").click(function(){
+							$(this).next("tr").toggle(250);
+							$(this).find(".row").toggleClass("up");
+						});
+	    			});
 
 
 				$("#botaoPdfMobile").show();
@@ -701,4 +703,16 @@ function erro3(){
 	setTimeout(function(){
 		$("#erroConsulta3").stop().slideUp(250);
 	}, 2500);
+}
+
+
+function animacao(){
+	setTimeout(function(){
+		$("#tabelaMobile tbody tr:first-child").css('background-color','#f5f5f5');
+	}, 400);
+
+	setTimeout(function(){
+		$("#tabelaMobile tbody tr:first-child").css('background-color','white');
+		$("#tabelaMobile tbody tr:first-child").next("tr").toggle(1000);
+	}, 600);
 }

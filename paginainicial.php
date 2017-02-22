@@ -58,7 +58,7 @@ include("verifica.php");
 
     <!-- *************************************************** Parametros de consulta **************************************************************** -->
     <div class="container" style="margin-top: -20px;">
-      <h2>Consultar por:</h2>
+      <h3>Consultar por:</h3>
       <div class="btn-group" role="group">
         <button type="button" class="btn btn-default" id="buttonOrden">Orden de Pago</button>
         <button type="button" class="btn btn-default" id="buttonRuc">RUC</button>
@@ -136,7 +136,7 @@ include("verifica.php");
       }
       ?>
       <span hidden id="botaoPdfDesktop">
-        <button class="btn btn-success botao pdf" id="buttonPdfDesktop">Salvar PDF</button>
+        <button class="btn btn-success botao pdf" id="buttonPdfDesktop">Relatório PDF</button>
       </span>
     </div>
 
@@ -153,7 +153,7 @@ include("verifica.php");
       }
       ?>
       <span hidden id="botaoPdfMobile">
-        <button class="btn btn-success botao pdf" id="buttonPdfMobile">Salvar PDF</button>
+        <button class="btn btn-success botao pdf" id="buttonPdfMobile">Relatório PDF</button>
       </span>
     </div>
     </form>
